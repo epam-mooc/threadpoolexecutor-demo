@@ -1,7 +1,5 @@
 ThreadPoolExecutor
 =======================
-The Basics
-----------
 The executor framework introduces an interface to manage task execution: Executor. Executor is the interface you use to submit tasks, represented as Runnable instances. This interface also isolates a task submission from a task execution: executors with different execution policies all publish the same submission interface: should you change your execution policy, your submission logic wouldn’t be affected by the change.
 
 Configuring a ThreadPoolExecutor
@@ -25,9 +23,9 @@ Queuing
 -------
 Any **BlockingQueue** may be used to transfer and hold submitted tasks. The use of this queue interacts with pool sizing:
 
-*If fewer than corePoolSize threads are running, the Executor always prefers adding a new thread rather than queuing.
-*If corePoolSize or more threads are running, the Executor always prefers queuing a request rather than adding a new thread.
-*If a request cannot be queued, a new thread is created unless this would exceed maximumPoolSize, in which case, the task will be rejected.
+* If fewer than corePoolSize threads are running, the Executor always prefers adding a new thread rather than queuing.
+* If corePoolSize or more threads are running, the Executor always prefers queuing a request rather than adding a new thread.
+* If a request cannot be queued, a new thread is created unless this would exceed maximumPoolSize, in which case, the task will be rejected.
 
 There are three general strategies for queuing:
 
@@ -46,5 +44,6 @@ New tasks submitted in method **execute(java.lang.Runnable)** will be rejected w
 
 It is possible to define and use other kinds of RejectedExecutionHandler classes. Doing so requires some care especially when policies are designed to work only under particular capacity or queuing policies.
 
+------------------------
 More information about ThreadPoolExecutor:
 * http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html
