@@ -5,7 +5,7 @@ The executor framework introduces an interface to manage task execution: Executo
 Configuring a ThreadPoolExecutor
 --------------------------------
 The most extensive constructor of ThreadPoolExecutor is
-
+```java
 public ThreadPoolExecutor(
 	int corePoolSize,
 	int maxPoolSize,
@@ -13,7 +13,7 @@ public ThreadPoolExecutor(
 	TimeUnit unit,
 	BlockingQueue<Runnable> workQueue,
 	RejectedExecutionHandler handler);
-	
+```	
 Core and maximum pool sizes
 ---------------------------
 <img align="left" src="http://tutorials.jenkov.com/images/java-concurrency-utils/thread-pool-executor.png" />
