@@ -19,7 +19,7 @@ public ThreadPoolExecutor(
 Core and maximum pool sizes
 ---------------------------
 <img align="left" src="http://tutorials.jenkov.com/images/java-concurrency-utils/thread-pool-executor.png" />
-
+A ThreadPoolExecutor will automatically adjust the pool size according to the bounds set by corePoolSize and maximumPoolSize. When a new task is submitted in method **execute(java.lang.Runnable)**, and fewer than corePoolSize threads are running, a new thread is created to handle the request, even if other worker threads are idle. If there are more than corePoolSize but less than maximumPoolSize threads running, a new thread will be created only if the queue is full. By setting corePoolSize and maximumPoolSize the same, you create a fixed-size thread pool. By setting maximumPoolSize to an essentially unbounded value such as Integer.MAX_VALUE, you allow the pool to accommodate an arbitrary number of concurrent tasks. Most typically, core and maximum pool sizes are set only upon construction, but they may also be changed dynamically using **setCorePoolSize(int)** and **setMaximumPoolSize(int)**.
 
 Queuing
 -------
@@ -40,3 +40,6 @@ New tasks submitted in method **execute(java.lang.Runnable)** will be rejected w
 3. In **ThreadPoolExecutor.DiscardPolicy**, a task that cannot be executed is simply dropped.
 4. In **ThreadPoolExecutor.DiscardOldestPolicy**, if the executor is not shut down, the task at the head of the work queue is dropped, and then execution is retried (which can fail again, causing this to be repeated.)
 It is possible to define and use other kinds of RejectedExecutionHandler classes. Doing so requires some care especially when policies are designed to work only under particular capacity or queuing policies.
+
+More information about ThreadPoolExecutor:
+* http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html
